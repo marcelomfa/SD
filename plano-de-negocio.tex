@@ -106,7 +106,7 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Documentação Técnica e Plano de Negócio \\ VisuMED}
+\titulo{Documentação Técnica e Plano de Negócio \\ NewsMap}
 \autor{Guilherme Souza da Silva \\ Jose Geraldo Fernandes Rabelo Filho \\ Marcelo Ferreira de Aquino}
 \local{Brasil}
 \data{2019}
@@ -117,7 +117,7 @@
 \tipotrabalho{Relatório técnico}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
-\preambulo{Plano de Negócio da empresa \textit{GMG Solutions} para o aplicativo \textit{VisuMED} a ser apresentado na disciplina de Sistemas Distribuidos no ano de 2019.}
+\preambulo{Plano de Negócio da empresa \textit{GMG Solutions} para o aplicativo \textit{NewsMap} a ser apresentado na disciplina de Sistemas Distribuidos no ano de 2019.}
 % ---
 
 % ---
@@ -214,13 +214,13 @@
 
 \chapter{Resumo}
 
-A importância do conhecimento, como fator de gerenciamento nas organizações, propicia um crescente interesse no entendimento das variáveis que impactam na implementação de recursos em empresas, organizações e países. Diante da relevância do assunto, a \textit{GMG Solutions} propõe uma ferramenta de visualização e análise de ocorrências relacionadas a saúde, chamada de \textit{VisuMED}. 
+A importância do conhecimento, como fator de gerenciamento nas organizações, propicia um crescente interesse no entendimento das variáveis que impactam na implementação de recursos em empresas, organizações e países. Diante da relevância do assunto, a \textit{GM Solutions} propõe uma ferramenta de visualização e análise de ocorrências relacionadas a violência, chamada de \textit{NewsMap}. 
 
-O objetivo do \textit{VisuMED} é  usar algoritmos coletores web de notícias que se aplicam a temas relacionados a saúde e que são importantes para gerenciamento de recursos, por exemplo, com a noticia \textit{"Homem leva facada nas costas após discussão e morre em hospital de Manaus"} o gestor responsável pelos hospitais da cidade pode aumentar ou diminuir o envio de determinado recurso ao hospital em questão.
+O objetivo do \textit{NewsMap} é  usar algoritmos coletores web de notícias que se aplicam a temas relacionados a violência e que são importantes para gerenciamento de recursos, por exemplo, com a noticia \textit{"Homem leva facada nas costas após discussão e morre em hospital de Manaus"} o gestor responsável da cidade pode aumentar ou diminuir o envio de determinado recurso a determinada região.
 
-O usuário (\textit{premium} ou \textit{não-premium}), através de seu dispositivo Android, terá acesso a uma lista de eventos ocorridos na cidade relacionados a saúde. Esses eventos serão marcados no mapa e poderão ser visualizados pelos usuário do aplicativo.
+O usuário (\textit{premium} ou \textit{não-premium}), através de seu dispositivo Android, terá acesso a uma lista de eventos ocorridos na cidade relacionados. Esses eventos serão marcados no mapa e poderão ser visualizados pelos usuário do aplicativo.
 
-A método de alimentação das informações da plataforma será de maneira \textit{semi-colaborativa} através das redes sociais, ou seja, usará um algoritmo responsável pela coleta de publicações em redes sociais para alimentação de sua base de informação. Essas publicações serão interpretadas e adicionadas na lista de eventos de acordo com sua classificação.
+A método de alimentação das informações da plataforma será de maneira \textit{semi-colaborativa} através de sites de notícias, ou seja, usará um algoritmo responsável pela indexação de links para alimentação de sua base de informação. Essas publicações serão interpretadas e adicionadas na lista de eventos de acordo com sua classificação.
 
 A dinâmica de coleta de informação tem característica \textit{semi-colaborativa} pelo fato de ela ser produzida pelo usuário final, porém ela será coletada da rede social e não do usuário final.
 
@@ -238,7 +238,7 @@ A ideia dos desenvolvedores foi conciliadas por meio de um \textit{brainstorm} s
 		\hline
 				 						& Tecnologias			& Módulos \\ \hline
 		\multirow{3}{*}{FrontEnd} 		& RESTFul Web Service	& Disponibilizar os Metadados \\
-										& IONIC 				& Exibir Relatórios\\
+										& Android  				& Exibir Relatórios\\
 										& Google MAP API 		& Exibir Mapa\\ \hline
 		\multirow{4}{*}{BackEnd}		& Crawler 				& Coletor de Dados na WEB\\
 										& Scraper 				& Tratamento dos Dados \\
@@ -252,17 +252,17 @@ A ideia dos desenvolvedores foi conciliadas por meio de um \textit{brainstorm} s
 
 O Web Service irá disponibilizar os dados estruturados em JSON que posteriormente serão consumidos pelo app, desenvolvido em IONIC, para marcação dos eventos no mapa e geração de relatório.
 
-\section*{IONIC}
+\section*{Andoid }
 
-O IONIC é um framework para desenvolvimento de aplicativos móveis híbridos criado em 2013, com ele teremos a possibilidade de desenvolver a aplicação multiplataforma. O IONIC  será usado para desenvolvimento da aplicação Mobile e WEB. 
+MUDAR
 
 \section*{Crawler}
 
-Um rastreador da rede, em inglês \textit{web crawler}, é um programa de computador que navega pela internet de uma forma metódica e automatizada. Outros termos para rastreadores da rede são indexadores automáticos. A função do \textit{Crawler} no VisuMED será de coletar notícias de interesse do aplicativo para posteriormente ser salvo no Banco de Dados baseada em MongoDB.
+Um rastreador da rede, em inglês \textit{web crawler}, é um programa de computador que navega pela internet de uma forma metódica e automatizada. Outros termos para rastreadores da rede são indexadores automáticos. A função do \textit{Crawler} no NewsMap será de coletar notícias de interesse do aplicativo para posteriormente ser salvo no Banco de Dados baseada em MongoDB.
 
 \section*{Scraper}
 
-Web scraping é uma técnica de extração de dados utilizada para coletar dados de sites por meio de processos automatizados. O Scraper faz extração de dados, da mesma forma, em uma cadeia de caracteres qualquer. A função do Scraper no VisuMED é categorizar as notícias indexadas pelo Crawler e determinar quais serão de interesse do aplicativo.
+Web scraping é uma técnica de extração de dados utilizada para coletar dados de sites por meio de processos automatizados. O Scraper faz extração de dados, da mesma forma, em uma cadeia de caracteres qualquer. A função do Scraper no NewsMap é categorizar as notícias indexadas pelo Crawler e determinar quais serão de interesse do aplicativo.
 
 \section*{MongoDB}
 
@@ -286,8 +286,49 @@ MongoDB é um software de banco de dados não relacional orientado, de código a
 	\end{center}
 \end{figure}
 
+\chapter{Diagrama de Casos de Uso}
+
 \chapter{Mockups}
 
+\subsection{Tela Principal}
+
+
+\begin{figure}[h]
+	\caption{\label{tela_principal}Mockup da Tela Principal.}
+	\begin{center}
+		\includegraphics[scale=0.2]{figuras/tela-menu.jpeg}
+	\end{center}
+\end{figure}
+
+\subsection{Mapa Principal - Clusterizado}
+
+
+\begin{figure}[h]
+	\caption{\label{tela_principal}Mockup do Mapa principal.}
+	\begin{center}
+		\includegraphics[scale=0.2]{figuras/tela-clustermap.jpeg}
+	\end{center}
+\end{figure}
+
+\subsection{Mapa de Calor}
+
+
+\begin{figure}[h]
+	\caption{\label{tela_principal}Mockup do Mapa de Calor.}
+	\begin{center}
+		\includegraphics[scale=0.2]{figuras/tela-heatmap.jpeg}
+	\end{center}
+\end{figure}
+
+\subsection{Listagem dos Bairros}
+
+
+\begin{figure}[h]
+	\caption{\label{tela_principal}Mockup da Listagem dos Bairros.}
+	\begin{center}
+		\includegraphics[scale=0.2]{figuras/tela-listabairros.jpeg}
+	\end{center}
+\end{figure}
 % ----------------------------------------------------------
 
 \part{Plano de Negócio}
@@ -299,7 +340,7 @@ MongoDB é um software de banco de dados não relacional orientado, de código a
 
 O plano negócio se resume em funcionalidades adicionais para usuários \textit{premium}. A funcionalidade disponível para usuários \textit{não-premium} será apenas visualização das ocorrência marcadas no mapa, enquanto usuários \textit{premium} terão dados  estatísticos e relatórios disponíveis de todas as localidade da cidade.
 
-As pessoas beneficiadas pelo \textit{VisuMED} serão o público em geral, haja visto que o serviço prestado será de difusão de informações relacionadas a saúde. 
+As pessoas beneficiadas pelo \textit{NewsMap} serão o público em geral, haja visto que o serviço prestado será de difusão de informações relacionadas a saúde. 
 
 \textbf{O capital inicial da empresa veio dos sócios e o seu lucro e faturamento virá de contratos com órgãos públicos.}
 
@@ -408,7 +449,7 @@ A abertura da empresa se deu através de investimento de capital próprio dos s�
 \subsection{Público Alvo}
 
 \begin{itemize}
-	\item Agentes públicos e privados do sistema de saúde
+	\item Agentes públicos e privados do sistema de segurança
 	\item Imobiliárias
 	\item Agentes de Segurança
 	\item Seguradoras
