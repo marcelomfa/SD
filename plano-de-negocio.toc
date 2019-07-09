@@ -14,9 +14,6 @@
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Mockups}}{15}{chapter.5}
 \contentsline {subsection}{\numberline {5.0.1}Tela Principal}{15}{subsection.5.0.1}
-\contentsline {subsection}{\numberline {5.0.2}Mapa Principal - Clusterizado}{15}{subsection.5.0.2}
-\contentsline {subsection}{\numberline {5.0.3}Mapa de Calor}{15}{subsection.5.0.3}
-\contentsline {subsection}{\numberline {5.0.4}Listagem dos Bairros}{15}{subsection.5.0.4}
 \contentsline {part}{\partnumberline {II}\MakeTextUppercase {Plano de Neg\IeC {\'o}cio}}{19}{part.2}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Sum\IeC {\'a}rio Executivo}}{21}{chapter.6}
