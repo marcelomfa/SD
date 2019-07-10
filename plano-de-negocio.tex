@@ -62,6 +62,10 @@
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{multirow}			% para mesclas linhas em tabelas
 
+\usepackage[brazil]{babel}
+\usepackage{graphicx}
+\usepackage{subfig}
+
 % ---
 
 % ---
@@ -287,42 +291,57 @@ MongoDB é um software de banco de dados não relacional orientado, de código a
 	\end{center}
 \end{figure}
 
-\chapter{Diagrama de Casos de Uso}
+\chapter{Estrutura do Sistema}
+
+\section{Diagrama de casos de uso}
+
+\begin{figure}[h]
+	\caption{\label{caso_de_uso_figura}Diagrama de Caso de Uso.}
+	\begin{center}
+		\includegraphics[scale=0.68]{figuras/diagrama-de-caso-de-uso.png}
+	\end{center}
+\end{figure}
+
+\section{Diagrama de Classes}
+
+
+
 
 \chapter{Mockups}
 
 \subsection{Tela Principal}
 
 
-\begin{figure}[h]
-	\caption{\label{tela_principal}Mockup da Tela Principal.}
-	\begin{center}
-		\includegraphics[scale=0.2]{figuras/tela-menu.jpeg}
-		\includegraphics[scale=0.2]{figuras/tela-clustermap.jpeg}
-
-	\end{center}
+\begin{figure}[!htb]
+	\centering
+	\subfloat[Tela Menu]{
+		\includegraphics[scale=0.19]{figuras/tela-menu.jpeg}
+		\label{tela_principal}
+	}
+	\quad %espaco separador
+	\subfloat[Tela Principal]{
+		\includegraphics[scale=0.19]{figuras/tela-clustermap.jpeg}
+		\label{cluster_map}
+	}
+	\quad %espaco separador
+	\quad %espaco separador
+	\quad %espaco separador
+	\quad %espaco separador
+	\quad %espaco separador
+	\subfloat[Ocorrências separadas por bairros]{
+		\includegraphics[scale=0.19]{figuras/tela-listabairros.jpeg}
+		\label{tela_list_bairros}
+	}
+	\quad %espaco separador
+	\subfloat[Mapa de calor das ocorrências]{
+		\includegraphics[scale=0.19]{figuras/tela-heatmap.jpeg}
+		\label{cluster_map}
+	}
+	\caption{Mockups das telas do App}
+	\label{fig01}
 \end{figure}
 
-\begin{figure}[h]
-	\caption{\label{tela_principal}Mockup do Mapa principal.}
-	\begin{center}
-		\includegraphics[scale=0.2]{figuras/tela-clustermap.jpeg}
-	\end{center}
-\end{figure}
 
-\begin{figure}[h]
-	\caption{\label{tela_principal}Mockup do Mapa de Calor.}
-	\begin{center}
-		\includegraphics[scale=0.2]{figuras/tela-heatmap.jpeg}
-	\end{center}
-\end{figure}
-
-\begin{figure}[h]
-	\caption{\label{tela_principal}Mockup da Listagem dos Bairros.}
-	\begin{center}
-		\includegraphics[scale=0.2]{figuras/tela-listabairros.jpeg}
-	\end{center}
-\end{figure}
 % ----------------------------------------------------------
 
 \part{Plano de Negócio}
