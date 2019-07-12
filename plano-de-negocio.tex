@@ -111,8 +111,8 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Documentação Técnica e Plano de Negócio \\ DangerMap}
-\autor{Guilherme Souza da Silva \\ Jose Geraldo Fernandes Rabelo Filho \\ Marcelo Ferreira de Aquino}
+\titulo{RELATÓRIO DE ESTÁGIO SUPERVISIONADO}
+\autor{Universidade Federal do Amazonas \\ Faculdade de Tecnologia}
 \local{Brasil}
 \data{2019}
 \instituicao{%
@@ -208,430 +208,61 @@
 \cleardoublepage
 % ---
 
-% ----------------------------------------------------------
-% Parte de resultados
-% ----------------------------------------------------------
-\part{Documentação Técnica}
 
-% ---
-% Capitulo de revisão de literatura
-% ---
+\chapter{Introdução}
 
-\chapter{Resumo}
+No presente projeto foi realizado o estudo e desenvolvimento de um sistema web para gerenciamento de monografias e download de certificados para os cursos de Engenharia Engenharia Elétrica - Eletrotécinica. O sistema visa facilitar e agilizar o processo de organização e disponibilização das monografias e declaração de conclusão de curso.
 
-A importância do conhecimento, como fator de gerenciamento nas organizações, propicia um crescente interesse no entendimento das variáveis que impactam na implementação de recursos em empresas, organizações e países. Diante da relevância do assunto, a \textit{GM Solutions} propõe uma ferramenta de visualização e análise de ocorrências relacionadas a violência, chamada de \textit{DangerMap}. 
+Para a implementação do projeto, foi necessário verificar junto ao supervisor e administrador de curso os requisitos necessários ao sistema e realizar pequenas entregas para que pudesse ser gerado um produto útil e de fácil uso, uma vez que apenas a ideia geral estava definida no momento do início do estágio. Também foi necessário realizar a criação de um domínio próprio do curso, composto de servidor de arquivos e banco de dados e a instalação do framework escolhido neste servidor.
 
-O objetivo do \textit{DangerMap} é  usar algoritmos coletores web de notícias que se aplicam a temas relacionados a violência e que são importantes para gerenciamento de recursos, por exemplo, com a noticia \textit{"Homem leva facada nas costas após discussão e morre em hospital de Manaus"} o gestor responsável da cidade pode aumentar ou diminuir o envio de determinado recurso a determinada região.
+Inicialmente foi definido que o sistema seria composto por páginas informativas, controle de acesso de usuário, módulos de busca, inserção e remoção de monografias, inserção e remoção dos professores, geração de declarações de conclusão de curso e autenticação automática das declarações, divulgação de eventos e notícias relacionadas ao curso, disponibilização de formulários que interessam ao discente do curso e resumo descritivo dos laboratórios.
 
-O usuário (\textit{premium} ou \textit{não-premium}), através de seu dispositivo Android, terá acesso a uma lista de eventos ocorridos na cidade relacionados. Esses eventos serão marcados no mapa e poderão ser visualizados pelos usuário do aplicativo.
+No próximo capítulo será mostrado o produto e as funcionalidades desenvolvidas durante o período do estágio.
 
-A método de alimentação das informações da plataforma será de maneira \textit{semi-colaborativa} através de sites de notícias, ou seja, usará um algoritmo responsável pela indexação de links para alimentação de sua base de informação. Essas publicações serão interpretadas e adicionadas na lista de eventos de acordo com sua classificação.
 
-A dinâmica de coleta de informação tem característica \textit{semi-colaborativa} pelo fato de ela ser produzida pelo usuário final, porém ela será coletada da rede social e não do usuário final.
 
+\chapter{Desenvolvimento}
 
 
-\chapter{Brain-Storm Inicial}
+Esse projeto foi desenvolvido com base no framework Yii2, uma vez que este já era de conhecimento do aluno e o seu uso ofereceria um desenvolvimento rápido e eficiente do sistema. Nos próximos subcapítulos será mostrado as tecnologias utilizadas e os módulos desenvolvidos.
 
+\section{Framework Yii2}
 
-A ideia dos desenvolvedores foi conciliadas por meio de um \textit{brainstorm} superficial, no qual conseguimos descrever tecnologias utilizadas e seus respectivos módulos, dividindo-se em \textit{frontend} e \textit{backend}.
+Framework de software é um conjunto de códigos genéricos, geralmente em forma de classes, implementado em alguma linguagem de programação, usados para resolver um problema de um domínio específico. Atua onde há funcionalidades em comum entre várias aplicações, utilizando o conceito chamado de reúso em engenharia de software, o que reduz bastante o esforço e o tempo necessário para desenvolver um trabalho comum, como, por exemplo, acesso a banco de dados e validação de dados [3,4].
 
-\begin{center}
-	\begin{tabular}{|l|l|l|}
-		\hline
-		\multicolumn{3}{|c|}{Tecnologias e Métodos} \\
-		\hline
-				 						& Tecnologias			& Módulos \\ \hline
-		\multirow{3}{*}{FrontEnd} 		& RESTFul Web Service	& Disponibilizar os Metadados \\
-										& Android  				& Exibir Relatórios\\
-										& Google MAP API 		& Exibir Mapa\\ \hline
-		\multirow{4}{*}{BackEnd}		& Crawler 				& Coletor de Dados na WEB\\
-										& Scraper 				& Tratamento dos Dados \\
-										& MongoDB 				& Armazenamento dos Dados \\
-				 						& Python 				& Stemming \\ \hline
-	\end{tabular}
-\end{center}
+Yii2 é um framework PHP baseado em componentização de alta performance destinado a desenvolvimento rápido de modernas aplicações web [5]. O nome Yii, pronunciado ji, significa “simples e evolucionário” na língua chinesa. Também pode ser pensado como um acrônimo do termo em inglês Yes It Is! Por ser um framework de desenvolvimento genérico, pode ser utilizado para o desenvolvimento de todos os tipos de aplicações web com o uso de PHP. Como é baseado em uma arquitetura componentizada e um sofisticado suporte a caching, é especialmente adequado para o desenvolvimento de aplicações de grande escala, como portais, fóruns, sistemas de gerenciamento, serviços web RESTful e outros. Dentre as suas principais características, podem ser citadas modelo de arquitetura Model-View-Controller, Query builders e ActiveRecord para transações com banco de dados de forma rápida e fácil, suporte a desenvolvimento de API RESTful, armazenamento de cache de várias camadas e arquitetura expansível por meio de extensões. Seu código é aberto e é desenvolvido por uma grande equipe e possui uma larga comunidade de profissionais constantemente contribuindo com desenvolvedores de aplicações, além de dispor de uma enorme quantidade de tutoriais e materiais de apoio na internet. Outro ponto importante é que a cada atualização, seu código fonte incorpora as últimas tendências e melhores práticas de desenvolvimento web.
 
+\section{MySql}
 
-\section*{RESTFul Web Service}
+Um sistema de gerenciamento de banco de dados é um programa de computador que fornece recursos capazes de manipular informações em um banco de dados de forma a facilitar e abstrair a interação do usuário com as informações. São usados em muitas aplicações onde é necessário realizar o armazenamento e a sua posterior recuperação, como, por exemplo, sistemas de gerenciamento empresarial ou programas de correio eletrônico. Englobam um conjunto de procedimentos, que o usuário percebe como uma única ação, que garantem a integridade das transações realizadas, identificados pela sigla ACID, oriunda dos termos atomicidade, consistência, isolamento e durabilidade. Geralmente essas ações são executadas por uma linguagem própria, sendo a SQL, sigla para Structured Query Language, a mais difundida atualmente.
 
-O Web Service irá disponibilizar os dados estruturados em JSON que posteriormente serão consumidos pelo app, desenvolvido em IONIC, para marcação dos eventos no mapa e geração de relatório.
+MySql é um sistema de gerenciamento de banco de dados de uso livre baseado em linguagem sql que oferece muitas funcionalidades como triggers, views e connectors. Possui uma grande comunidade na internet, além vasta documentação e tutoriais que tornam a sua curva de aprendizado pequena e sua aplicação fácil em projetos, tanto por que é iniciante quanto profissional na área.
 
-\section*{Andoid }
+\section{Sistema de Gerenciamento de Monografias}
 
-Android Studio é um ambiente de desenvolvimento integrado para desenvolver para a plataforma Android. Foi anunciado em 16 de Maio de 2013 na conferência Google I/O. Android Studio é disponibilizado gratuitamente sob a Licença Apache 2.0.
+O sistema é composto por cinco módulos principais, que são: Professores, Notícias, Monografias, e Usuários. Cada um deles será descrito em detalhes ao longo deste relatório. O layout padrão é formado por um menu horizontal no topo da página, uma imagem do braço robótico do laboratório de controle com o texto “Engenharia Elétrica Eletrotécnica” e o corpo do sistema no restante da página, como é mostrado na figura 1.
 
-\section*{Crawler}
+O menu horizontal é composto por um link que retorna à página inicial do lado esquerdo, pelo botão Institucional que possui links para histórico, corpo docente, secretaria e laboratórios;, pelo botão Acadêmico que possui links para centro acadêmico e monografias;, pelo botão Coordenação que possui links para PPC, planejamento estratégico, disciplinas ofertadas; e contatos e por um botão de login/logout do lado direito. O corpo do sistema é o local onde o usuário executas as funções desejadas disponíveis nos módulos.
 
-Um rastreador da rede, em inglês \textit{web crawler}, é um programa de computador que navega pela internet de uma forma metódica e automatizada. Outros termos para rastreadores da rede são indexadores automáticos. A função do \textit{Crawler} no DangerMap será de coletar notícias de interesse do aplicativo para posteriormente ser salvo no Banco de Dados baseada em MongoDB.
+Há dois tipos de usuários possíveis, visitante e administrador. Cada qual tem uma visualização e acesso diferenciados de acordo com as suas permissões. A figura 2 mostra um diagrama de caso de uso com as ações permitidas a cada um deles.
 
-\section*{Scraper}
+No módulo Professores é possível cadastrar os professores que compõem o departamento. O usuário visitante pode visualizar a relação de professores cadastrados com as informações mais comuns, como foto, nome, descrição de sua carreira acadêmica, linha de pesquisa, atual formação e local de formação, e-mail e currículo lattes. O usuário administrador pode visualizar todos essas informações além de poder inserir, remover e editar os registros. A figura 3 mostra um exemplo do ponto de vista do perfil de administrador. Os dados deste módulo tem o objetivo principal de compor as informações que fazem parte da emissão da declaração e composição da banca de defesa de monografia.
 
-Web scraping é uma técnica de extração de dados utilizada para coletar dados de sites por meio de processos automatizados. O Scraper faz extração de dados, da mesma forma, em uma cadeia de caracteres qualquer. A função do Scraper no DangerMap é categorizar as notícias indexadas pelo Crawler e determinar quais serão de interesse do aplicativo.
+No módulo Notícias é possível cadastrar as notícias gerenciadas pelo sistema. O usuário visitante não tem acesso na página principal às suas notícias, porém, não tem o poder de cadastrar novas notícias. Assim como no módulo anterior, o usuário administrador pode executar todas as ações do processo conhecido como CRUD, sigla para Inserir (Create), Remover (Remove), Atualizar (Update) e Apagar (Delete). Da mesma forma, os dados deste módulo tem o objetivo principal de compor as informações para a emissão da declaração de conclusão de curso.
 
-\section*{MongoDB}
+No módulo Usuários são cadastrados os administradores de todos os cursos gerenciados pelo sistema. O perfil de visitante também não tem acesso a este módulo, assim como no módulo anterior. O perfil de administrador pode realizar todas as operações do CRUD e os seus dados também são usados para a geração automática da declaração de conclusão de curso, como o nome do administrador e e-mail impressos no final do documento. Vale ressaltar aqui que cada administrador pode apenas inserir as monografias referentes aos alunos do seu curso.
 
-MongoDB é um software de banco de dados não relacional orientado, de código aberto e multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas. O MongoDB será usado para armazenamento dos dados antes e depois do processamento feito pelo Scraper.
+No módulo Monografias, o principal do sistema, é reunido todas as informações dos outros módulos importantes para o gerenciamento das monografias. Além das operações de CRUD típicas, é possível realizar o envio e download do arquivo da monografia no formato PDF, a alteração do token de autenticação da declaração e a visualização e download do arquivo da declaração de conclusão de curso.
 
+O token de autenticação é um código gerado no momento do cadastro da monografia que tem a função de agilizar o processo de emissão do documento de declaração por parte do autor da monografia e da conferência a autenticidade deste documento por parte de um terceiro interessado, como, por exemplo, uma empresa na qual o aluno entregou este documento, sem a necessidade de intervenção direta e assinatura do coordenado do curso.
 
-\chapter{Arquitetura}
+A figura 6 mostra a tela inicial deste módulo onde é possível selecionar as ações do CRUD. Os nomes das colunas, quando são clicados, também de a função de inverter e reorganizar a ordem que os dados são apresentados. Logo abaixo há campos de texto para a realização de filtros para facilitar e agilizar o processo de busca das monografias de interesse. Caso o número de monografias seja superior a vinte, é mostrado na parte inferior vários links para as páginas seguintes, visando facilitar e agilizar ainda mais o processo de busca.
 
-\begin{figure}[h]
-	\caption{\label{backend_figura}Arquitetura Back-End.}
-	\begin{center}
-		\includegraphics[scale=0.4	]{figuras/arquitetura-backend.png}
-	\end{center}
-\end{figure}
+A figura 7 mostra a tela de visualização. Nela é possível ver informações mais detalhadas sobre cada monografia. Os botões na parte superior são visíveis apenas pelos usuários do perfil administrador e os botões na parte inferior são visíveis por todos os usuários do sistema. O arquivo da monografia é armazenado no servidor de arquivos e fica disponível a todos os usuários interessados. A declaração de conclusão de curso é gerada em tempo de execução e fica disponível para download apenas no momento da sua requisição.
 
 
-\begin{figure}[h]
-	\caption{\label{frontend_figura}Arquitetura Front-End.}
-	\begin{center}
-		\includegraphics[scale=0.3]{figuras/arquitetura-frontend.png}
-	\end{center}
-\end{figure}
+\chapter{Considerações Finais}
 
-\chapter{Estrutura do Sistema}
-
-\section{Diagrama de casos de uso}
-
-\begin{figure}[h]
-	\caption{\label{caso_de_uso_figura}Diagrama de Caso de Uso.}
-	\begin{center}
-		\includegraphics[scale=0.68]{figuras/diagrama-de-caso-de-uso.png}
-	\end{center}
-\end{figure}
-
-\section{Diagrama de Classes}
-
-
-
-
-\chapter{Mockups}
-
-\subsection{Tela Principal}
-
-
-\begin{figure}[!htb]
-	\centering
-	\subfloat[Tela Menu]{
-		\includegraphics[scale=0.19]{figuras/tela-menu.jpeg}
-		\label{tela_principal}
-	}
-	\quad %espaco separador
-	\subfloat[Tela Principal]{
-		\includegraphics[scale=0.19]{figuras/tela-clustermap.jpeg}
-		\label{cluster_map}
-	}
-	\quad %espaco separador
-	\quad %espaco separador
-	\quad %espaco separador
-	\quad %espaco separador
-	\quad %espaco separador
-	\subfloat[Ocorrências separadas por bairros]{
-		\includegraphics[scale=0.19]{figuras/tela-listabairros.jpeg}
-		\label{tela_list_bairros}
-	}
-	\quad %espaco separador
-	\subfloat[Mapa de calor das ocorrências]{
-		\includegraphics[scale=0.19]{figuras/tela-heatmap.jpeg}
-		\label{cluster_map}
-	}
-	\caption{Mockups das telas do App}
-	\label{fig01}
-\end{figure}
-
-
-% ----------------------------------------------------------
-
-\part{Plano de Negócio}
-
-\chapter{Sumário Executivo}
-
-
-\section{Resumo}
-
-O plano negócio se resume em funcionalidades adicionais para usuários \textit{premium}. A funcionalidade disponível para usuários \textit{não-premium} será apenas visualização das ocorrência marcadas no mapa, enquanto usuários \textit{premium} terão dados  estatísticos e relatórios disponíveis de todas as localidade da cidade.
-
-As pessoas beneficiadas pelo \textit{DangerMap} serão o público em geral, haja visto que o serviço prestado será de difusão de informações relacionadas a violência. 
-
-\textbf{O capital inicial da empresa veio dos sócios e o seu lucro e faturamento virá de contratos com órgãos públicos.}
-
-
-\section{Dados dos empreendedores}
-
-\begin{center}
-	\begin{tabular}{|r|p{12cm}|}
-		\hline
-		\textbf{Nome:}		& Marcelo Ferreira de Aquino \\ \hline
-		\textbf{Endereço:}	& Avenida Rodrigo Otávio. \\ \hline
-		\textbf{Cidade:}	& Manaus \\ \hline
-		\textbf{Estado:}	& Amazonas \\ \hline
-		\textbf{Perfil:}	& Estudante de Engenharia da Computação na Universidade Federal do Amazonas\\ \hline
-		\textbf{Atribuições:}	& Tratamento dos Dados (Scrapers) \\ \hline
-	\end{tabular}
-\end{center}
-
-\begin{center}
-	\begin{tabular}{|r|p{12cm}|}
-		\hline
-		\textbf{Nome:}		& Jose Geraldo Fernandes Rabelo Filho \\ \hline
-		\textbf{Endereço:}	& Avenida Rodrigo Otávio. \\ \hline
-		\textbf{Cidade:}	& Manaus \\ \hline
-		\textbf{Estado:}	& Amazonas \\ \hline
-		\textbf{Perfil:}	& Estudante de Engenharia da Computação na Universidade Federal do Amazonas\\ \hline
-		\textbf{Atribuições:}	& Desenvolvimento do Ambiente (IONIC) \\ \hline
-	\end{tabular}
-\end{center}
-
-\begin{center}
-	\begin{tabular}{|r|p{12cm}|}
-		\hline
-		\textbf{Nome:}		& Guilherme Souza da Silva \\ \hline
-		\textbf{Endereço:}	& Avenida Rodrigo Otávio. \\ \hline
-		\textbf{Cidade:}	& Manaus \\ \hline
-		\textbf{Estado:}	& Amazonas \\ \hline
-		\textbf{Perfil:}	& Estudante de Engenharia da Computação na Universidade Federal do Amazonas\\ \hline
-		\textbf{Atribuições:}	& Coleta dos dados (Crawlers) \\ \hline
-	\end{tabular}
-\end{center}
-
-\begin{center}
-	\begin{tabular}{|r|p{12cm}|}
-		\hline
-		\textbf{Nome:}		& Eduardo James Souto \\ \hline
-		\textbf{Endereço:}	& Avenida Rodrigo Otávio. \\ \hline
-		\textbf{Cidade:}	& Manaus \\ \hline
-		\textbf{Estado:}	& Amazonas \\ \hline
-		\textbf{Perfil:}	& Professor na Universidade Federal do Amazonas \\ \hline
-		\textbf{Atribuições:}	& Investidor \\ \hline
-	\end{tabular}
-\end{center}
-
-\section{Missão da Empresa}
-
-Levar informações relacionadas a violência ao público em geral de maneira visual em relação ao local do ocorrido, além de realizar análise estatísticas relacionadas ao eventos indexados pelo aplicativo e direcioná-los as regiões da cidade de Manaus-AM.
-
-\section{Setor de Atividade}
-
-[ ] Agropecuária
-
-[ ] Comércio
-
-[ ] Indústria
-
-[X] Serviços
-
-\section{Forma Jurídica}
-
-( ) Empresário Individual
-
-( ) Empresa Individual de Responsabilidade Limitada – EIRELI
-
-( ) Microempreendedor Individual – MEI
-
-(x) Sociedade Limitada
-
-( ) Outros:
-
-\section{Capital Social}
-
-\begin{center}
-	\begin{tabular}{|c|c|c|c|}
-		\hline
-		\textbf{No:}	& \textbf{Sócio}				& \textbf{Valor} & \textbf{Participação} \\ \hline
-		1				& Marcelo Ferreira de Aquino 	& R\$ 48,99 & 16,33\% \\ \hline
-		2				& José Geraldo Rabelo 			& R\$ 48,99 & 16,33\% \\ \hline
-		3				& Guilherme de Souza 			& R\$ 48,99 & 16,33\% \\ \hline
-		4				& Eduardo Souto 				& R\$ 153,03 & 51,01\% \\ \hline
-		\textbf{Total}	& 	 							& \textbf{R\$ 300,00} & \textbf{100\% }\\ \hline
-	\end{tabular}
-\end{center}
-
-\section{Fonte do Recurso}
-
-A abertura da empresa se deu através de investimento de capital próprio dos sócios.
-
-
-%--------------------------------------------------
-
-\chapter{Análise de Mercado}
-
-\section{Estudo dos Clientes}
-
-\subsection{Público Alvo}
-
-\begin{itemize}
-	\item Agentes públicos e privados do sistema de segurança
-	\item Imobiliárias
-	\item Agentes de Segurança
-	\item Seguradoras
-\end{itemize}
-
-\subsection{Comportamento dos clientes (interesses e o que os levam a comprar)}
-
-O comportamento da uma população de área urbana é buscar diversão em locais fechados ou privados devido o aumento da violência. 
-
-
-\subsection{Área de abrangência (onde estão os clientes?)}
-
-
-
-\section{Estudo dos Concorrentes}
-
-\begin{itemize}
-	\item \textbf{IPEA} 
-		\subitem \textbf{Qualidade:}  Boa.
-		\subitem \textbf{Preço:} Não possuo essa informação.
-		\subitem \textbf{Condições de Pagamento:} Não possuo essa informação.
-		\subitem \textbf{Atendimento: } 
-		\subitem \textbf{Serviço aos Clientes:} 
-
-	\item \textbf{NewsMap} 
-		\subitem \textbf{Qualidade: }  Ruim.
-		\subitem \textbf{Preço: } Grátis.
-		\subitem \textbf{Condições de Pagamento: } Não possui.
-		\subitem \textbf{Atendimento: } Não possui.
-		\subitem \textbf{Serviço aos Clientes: } O NewsMap te entregava as notícias mais recorrentes de uma determinada região, por exemplo, EUA tem uma recorrência grande de notícias relacionadas ao Presidente Trump. No Brasil temos uma recorrência grande de notícias relacionadas ao Presidente da República Jair Bolsonaro. 
-		 
-\end{itemize}
-
-\subsection*{Conclusões}
-
-
-%------------------------------------------------
-
-\chapter{Plano de Marketing}
-
-\section{Produtos e Serviços}
-
-
-\section{Preços}
-
-\section{Estratégias promocionais}
-
-\section{Estrutura de comercialização}
-
-\section{Localização do negócio}
-
-\begin{center}
-	\begin{tabular}{|r|p{12cm}|}
-		\hline
-		\textbf{Endereço:}	& Av. General Rodrigo Otávio \\ \hline
-		\textbf{Bairro:}	& Coroado I. \\ \hline
-		\textbf{Cidade:}	& Manaus \\ \hline
-		\textbf{Estado:}	& Amazonas \\ \hline
-		\textbf{Telefone:}	&  \\ \hline
-	\end{tabular}
-\end{center}
-
-
-%---------------------------------------------------
-
-\chapter{Plano Operacional}
-
-\section{Capacidade Instalada}
-
-O produto estará disponível na PlayStore podendo ser baixado para os dispositivos android. Dessa forma, o funcionamento será ativo 24/7 em todos as unidades
-ativas do produto.
-
-\section{Processos Operacionais}
-
-\section{Necessidade Pessoal}
-
-
-%--------------------------------------------------
-
-\chapter{Plano Financeiro}
-
-\section{Investimento total}
-
-
-%--------------------------------------------------
-
-\chapter{Conclusão}
-
-\section{Investimento total}
-
-	
-
-
-% ----------------------------------------------------------
-% Anexos
-% ----------------------------------------------------------
-
-% ---
-% Inicia os anexos
-% ---
-\begin{anexosenv}
-
-% Imprime uma página indicando o início dos anexos
-\partanexos
-
-% ---
-\chapter{Morbi ultrices rutrum lorem.}
-% ---
-\lipsum[30]
-
-
-\end{anexosenv}
-
-%---------------------------------------------------------------------
-% INDICE REMISSIVO
-%---------------------------------------------------------------------
-
-\phantompart
-
-\printindex
-
-%---------------------------------------------------------------------
-% Formulário de Identificação (opcional)
-%---------------------------------------------------------------------
-\chapter*[Formulário de Identificação]{Formulário de Identificação}
-\addcontentsline{toc}{chapter}{Exemplo de Formulário de Identificação}
-\label{formulado-identificacao}
-
-Exemplo de Formulário de Identificação, compatível com o Anexo A (informativo)
-da ABNT NBR 10719:2015. Este formulário não é um anexo. Conforme definido na
-norma, ele é o último elemento pós-textual e opcional do relatório.
-
-\bigskip
-
-\begin{tabular}{|p{9cm}|p{5cm}|}
-\hline
-\multicolumn{2}{|c|}{\textbf{\large Dados do Relatório Técnico e/ou científico}}\\
-\hline
-\multirow{4}{10cm}[24pt]{Título e subtítulo}& Classificação de segurança\\
-                   & \\
-                   \cline{2-2}
-                   & No.\\
-                   & \\
-				
-\hline
-Tipo de relatório & Data\\
-\hline
-Título do projeto/programa/plano & No.\\
-\hline
-\multicolumn{2}{|l|}{Autor(es)} \\
-\hline
-\multicolumn{2}{|l|}{Instituição executora e endereço completo} \\
-\hline
-\multicolumn{2}{|l|}{Instituição patrocinadora e endereço completo} \\
-\hline
-\multicolumn{2}{|l|}{Resumo}\\[3cm]
-\hline
-\multicolumn{2}{|l|}{Palavras-chave/descritores}\\
-\hline
-\multicolumn{2}{|l|}{
-Edição \hfill No. de páginas \hfill No. do volume \hfill Nº de classificação \phantom{XXXX}} \\
-\hline
-\multicolumn{2}{|l|}{
-ISSN \hfill \hfill Tiragem \hfill Preço \phantom{XXXXXXXX}} \\
-\hline
-\multicolumn{2}{|l|}{Distribuidor} \\
-\hline
-\multicolumn{2}{|l|}{Observações/notas}\\[3cm]
-\hline
-\end{tabular}
+Devido à utilização do conceito de reúso, principalmente com a utilização do framework Yii2 foi possível a realização deste projeto no curto período destinado ao estágio obrigatório de conclusão de curso. Também devido à utilização do conceito de metodologia ágil, foi possível desenvolver um produto muito mais funcional, uma vez que existia apenas a ideia geral do sistema no início de sua implementação e os detalhes e particularidades de cada módulo foram sendo definidos e aperfeiçoados no decorrer do trabalho. Apesar de resolver bem o problema ao qual foi destinado, há ainda muito mais a ser feito neste sistema, podendo ser realizado por outros alunos, uma fez que as ferramentas utilizadas são de uso livre, de pequena curva de aprendizado e possuem muito material didático online disponível para consulta.
 
 \end{document}

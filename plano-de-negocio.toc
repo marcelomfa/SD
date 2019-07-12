@@ -2,64 +2,12 @@
 \babel@toc {brazil}{}
 \babel@toc {brazil}{}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {part}{\partnumberline {I}\MakeTextUppercase {Documenta\IeC {\c c}\IeC {\~a}o T\IeC {\'e}cnica}}{5}{part.1}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Resumo}}{7}{chapter.1}
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdu\IeC {\c c}\IeC {\~a}o}}{3}{chapter.1}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Brain-Storm Inicial}}{9}{chapter.2}
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Desenvolvimento}}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Framework Yii2}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}MySql}{5}{section.2.2}
+\contentsline {section}{\numberline {2.3}Sistema de Gerenciamento de Monografias}{6}{section.2.3}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Arquitetura}}{11}{chapter.3}
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Estrutura do Sistema}}{13}{chapter.4}
-\contentsline {section}{\numberline {4.1}Diagrama de casos de uso}{13}{section.4.1}
-\contentsline {section}{\numberline {4.2}Diagrama de Classes}{13}{section.4.2}
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Mockups}}{15}{chapter.5}
-\contentsline {subsection}{\numberline {5.0.1}Tela Principal}{15}{subsection.5.0.1}
-\contentsline {part}{\partnumberline {II}\MakeTextUppercase {Plano de Neg\IeC {\'o}cio}}{17}{part.2}
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Sum\IeC {\'a}rio Executivo}}{19}{chapter.6}
-\contentsline {section}{\numberline {6.1}Resumo}{19}{section.6.1}
-\contentsline {section}{\numberline {6.2}Dados dos empreendedores}{19}{section.6.2}
-\contentsline {section}{\numberline {6.3}Miss\IeC {\~a}o da Empresa}{20}{section.6.3}
-\contentsline {section}{\numberline {6.4}Setor de Atividade}{20}{section.6.4}
-\contentsline {section}{\numberline {6.5}Forma Jur\IeC {\'\i }dica}{20}{section.6.5}
-\contentsline {section}{\numberline {6.6}Capital Social}{21}{section.6.6}
-\contentsline {section}{\numberline {6.7}Fonte do Recurso}{21}{section.6.7}
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase {An\IeC {\'a}lise de Mercado}}{23}{chapter.7}
-\contentsline {section}{\numberline {7.1}Estudo dos Clientes}{23}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}P\IeC {\'u}blico Alvo}{23}{subsection.7.1.1}
-\contentsline {subsection}{\numberline {7.1.2}Comportamento dos clientes (interesses e o que os levam a comprar)}{23}{subsection.7.1.2}
-\contentsline {subsection}{\numberline {7.1.3}\IeC {\'A}rea de abrang\IeC {\^e}ncia (onde est\IeC {\~a}o os clientes?)}{23}{subsection.7.1.3}
-\contentsline {section}{\numberline {7.2}Estudo dos Concorrentes}{23}{section.7.2}
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase {Plano de Marketing}}{25}{chapter.8}
-\contentsline {section}{\numberline {8.1}Produtos e Servi\IeC {\c c}os}{25}{section.8.1}
-\contentsline {section}{\numberline {8.2}Pre\IeC {\c c}os}{25}{section.8.2}
-\contentsline {section}{\numberline {8.3}Estrat\IeC {\'e}gias promocionais}{25}{section.8.3}
-\contentsline {section}{\numberline {8.4}Estrutura de comercializa\IeC {\c c}\IeC {\~a}o}{25}{section.8.4}
-\contentsline {section}{\numberline {8.5}Localiza\IeC {\c c}\IeC {\~a}o do neg\IeC {\'o}cio}{25}{section.8.5}
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {9}\MakeTextUppercase {Plano Operacional}}{27}{chapter.9}
-\contentsline {section}{\numberline {9.1}Capacidade Instalada}{27}{section.9.1}
-\contentsline {section}{\numberline {9.2}Processos Operacionais}{27}{section.9.2}
-\contentsline {section}{\numberline {9.3}Necessidade Pessoal}{27}{section.9.3}
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {10}\MakeTextUppercase {Plano Financeiro}}{29}{chapter.10}
-\contentsline {section}{\numberline {10.1}Investimento total}{29}{section.10.1}
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {11}\MakeTextUppercase {Conclus\IeC {\~a}o}}{31}{chapter.11}
-\contentsline {section}{\numberline {11.1}Investimento total}{31}{section.11.1}
-\cftinsert {AAA}
-\renewcommand *{\cftappendixname }{ANEXO \space }
-\setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
-\cftinsert {A}
-\contentsline {part}{\uppercase {Anexos}}{33}{section*.14}
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {Morbi ultrices rutrum lorem.}}{35}{appendix.anexochapback.1}
-\vspace {\cftbeforechapterskip }
-\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Exemplo de Formul\IeC {\'a}rio de Identifica\IeC {\c c}\IeC {\~a}o}{37}{appendix*.16}
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Considera\IeC {\c c}\IeC {\~o}es Finais}}{9}{chapter.3}
